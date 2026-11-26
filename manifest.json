@@ -1,0 +1,9 @@
+{
+  "name": "IELTS 15-Min Quest｜聽說讀寫互動闖關",
+  "short_name": "IELTS Quest",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#2563eb",
+  "lang": "zh-Hant"
+}

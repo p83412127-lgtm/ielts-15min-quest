@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="theme-color" content="#2563eb" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="IELTS Quest" />
+  <link rel="manifest" href="manifest.json" />
+  <title>IELTS 15-Min Quest｜聽說讀寫互動闖關</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand" id="goHomeBtn" role="button" tabindex="0">
+      <span class="brand-icon">🎯</span>
+      <div>
+        <div class="brand-title">IELTS 15-Min Quest</div>
+        <div class="brand-sub">OneNote 手寫筆記 × 四科題型闖關</div>
+      </div>
+    </div>
+
+    <div class="hud">
+      <div class="hud-pill timer-pill" id="timerWidget" title="15 分鐘專注倒數計時器">
+        <span>⏱️</span>
+        <span id="timerDisplay">15:00</span>
+        <button class="tiny-btn" id="timerToggleBtn">開始</button>
+        <button class="tiny-btn" id="timerResetBtn">重設</button>
+      </div>
+      <div class="hud-pill streak-pill" title="連續練習天數">
+        <span>🔥</span><span id="streakCount">0</span> 天
+      </div>
+      <div class="hud-pill xp-pill" title="累積經驗值">
+        <span>⭐</span><span id="xpCount">0</span> XP
+      </div>
+      <button class="hud-pill mistake-pill" id="openMistakesBtn" title="查看錯題本">
+        <span>📕</span>錯題本 (<span id="mistakeCount">0</span>)
+      </button>
+    </div>
+  </header>
+
+  <main id="appRoot" class="container">
+    <!-- Dynamic views rendered by app.js -->
+  </main>
+
+  <!-- Mistake Deck Modal -->
+  <div id="mistakeModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2>📕 個人錯題本（自動收錄答錯題目）</h2>
+        <button class="close-btn" id="closeMistakesBtn">✕</button>
+      </div>
+      <div id="mistakeList" class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- Passcode Gate (remembered per device once unlocked) -->
+  <div id="lockScreen" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card" style="max-width:400px; text-align:center; padding:28px 24px;">
+      <div style="font-size:40px; margin-bottom:8px;">🔒</div>
+      <h2 style="margin:0 0 6px;">IELTS 15-Min Quest</h2>
+      <p style="margin:0 0 16px; font-size:13.5px; color:#64748b;">私人備考互動練習頁，請輸入存取密碼（此裝置輸入一次即記住）</p>
+      <input type="password" id="passcodeInput" class="q-input" placeholder="請輸入密碼..." style="text-align:center; margin-bottom:10px;" />
+      <div id="passcodeErr" style="color:#dc2626; font-size:13px; min-height:20px; margin-bottom:8px;"></div>
+      <button class="btn btn-primary" id="unlockBtn" style="width:100%;">解鎖開始練習</button>
+    </div>
+  </div>
+
+  <!-- Skill Data Banks (generated from the 5 review guides) -->
+  <script src="data/listening.js"></script>
+  <script src="data/speaking.js"></script>
+  <script src="data/reading.js"></script>
+  <script src="data/writing.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
